@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?><archetype-descriptor name="eclipse.plugin.archetype">
+  <requiredProperties>
+    <requiredProperty key="tycho_version">
+      <defaultValue>0.15.0</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="eclipse_platform">
+      <defaultValue>juno</defaultValue>
+    </requiredProperty>
+  </requiredProperties>
+  <fileSets>
+    <fileSet encoding="UTF-8">
+      <directory></directory>
+      <includes>
+        <include>Eclipse Application.launch</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+  <modules>
+    <module id="${rootArtifactId}.core" dir="__rootArtifactId__.core" name="${rootArtifactId}.core">
+      <fileSets>
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+          <directory>src/main/java</directory>
+          <includes>
+            <include>**/*.java</include>
+          </includes>
+        </fileSet>
+        <fileSet encoding="UTF-8">
+          <directory>icons</directory>
+          <includes>
+            <include>**/*.gif</include>
+          </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory>META-INF</directory>
+          <includes>
+            <include>**/*.MF</include>
+          </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory></directory>
+          <includes>
+            <include>build.properties</include>
+            <include>plugin.xml</include>
+          </includes>
+        </fileSet>
+      </fileSets>
+    </module>
+    <module id="${rootArtifactId}.test" dir="__rootArtifactId__.test" name="${rootArtifactId}.test">
+      <fileSets>
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+          <directory>src/main/java</directory>
+          <includes>
+            <include>**/*.java</include>
+          </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory>META-INF</directory>
+          <includes>
+            <include>**/*.MF</include>
+          </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory></directory>
+          <includes>
+            <include>build.properties</include>
+          </includes>
+        </fileSet>
+      </fileSets>
+    </module>
+    <module id="${rootArtifactId}.feature" dir="__rootArtifactId__.feature" name="${rootArtifactId}.feature">
+      <fileSets>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory></directory>
+          <includes>
+            <include>build.properties</include>
+            <include>feature.xml</include>
+          </includes>
+        </fileSet>
+      </fileSets>
+    </module>
+    <module id="${rootArtifactId}.site" dir="__rootArtifactId__.site" name="${rootArtifactId}.site">
+      <fileSets>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory>src/main/assembly</directory>
+          <includes>
+            <include>**/*.xml</include>
+          </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory></directory>
+          <includes>
+            <include>site.xml</include>
+          </includes>
+        </fileSet>
+      </fileSets>
+    </module>
+  </modules>
+</archetype-descriptor>

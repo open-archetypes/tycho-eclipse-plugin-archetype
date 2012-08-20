@@ -1,0 +1,12 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+#if ($version.endsWith('-SNAPSHOT'))
+#set ($futureVersion = $version.substring(0,$version.indexOf('-SNAPSHOT')))
+#else 
+#set ($futureVersion = $version)
+#end
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/${parentArtifactId}.feature_${futureVersion}.qualifier.jar" id="${parentArtifactId}.feature" version="${futureVersion}.qualifier"/>
+</site>
