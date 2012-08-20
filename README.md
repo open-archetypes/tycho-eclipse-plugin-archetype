@@ -13,6 +13,15 @@ This archetype will create a multi-modules project with a nested structure :
      |
      |---__artifactId__.site : eclipse-update-site
 
+The generated plugin is based on the Hello World template from the PDE Wizard :
+
+This wizard creates standard plug-in directory structure and adds the following:
+
+    This template creates a simple action set that adds Sample Menu to the menu bar and a button to the tool bar. 
+    Both the menu item in the new menu and the button invoke the same Sample Action. 
+    Its role is to open a simple message dialog with a message of your choice.
+
+     
 This archetype is an updated version of the one I gave to https://issues.sonatype.org/browse/TYCHO-442
 
 Pre-Requisites :
@@ -59,5 +68,3 @@ You can then build your projects in command line, in a terminal, by issuing :
     mvn clean install
 
 An zipped update site will be created as `<project.parent>/<project.site>/target/<project.site>-<project.version>-site.zip`.
-
-
