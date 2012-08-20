@@ -15,9 +15,7 @@ This archetype will create a multi-modules project with a nested structure :
 
 The generated plugin is based on the Hello World template from the PDE Wizard :
 
-This wizard creates standard plug-in directory structure and adds the following:
-
-    This template creates a simple action set that adds Sample Menu to the menu bar and a button to the tool bar. 
+    [...] creates a simple action set that adds Sample Menu to the menu bar and a button to the tool bar. 
     Both the menu item in the new menu and the button invoke the same Sample Action. 
     Its role is to open a simple message dialog with a message of your choice.
 
