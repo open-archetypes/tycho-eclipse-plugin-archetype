@@ -11,7 +11,7 @@ This archetype will create a multi-modules project with a nested structure :
      |
      |---__artifactId__.test   : eclipse-test-plugin (Fragment project)
      |
-     |---__artifactId__.site : eclipse-update-site
+     |---__artifactId__.site : eclipse-repository
 
 The generated plugin is based on the Hello World template from the PDE Wizard :
 
@@ -38,7 +38,7 @@ In Eclipse, first add the Open Archetypes catalog :
 
 * On the Archetypes Preferences page (Window > Preferences > Maven > Archetypes), click on the "Add Remote Catalog..." button
 
-    - Catalog file : http://open-archetypes.github.com/maven-repo/snapshots/archetype-catalog.xml
+    - Catalog file : http://open-archetypes.github.com/maven-repo/snapshots/
     - Description : Open Archetypes (Snapshots)
 
 * Click OK to close the dialog
@@ -54,15 +54,15 @@ Now you can create a new project, using the Maven wizard :
 * Enter the Group Id, Artifact Id and Version informations. Eclipse requires the version to follow a Major.Minor.Micro pattern, so you should use 1.0.0-SNAPSHOT instead of 1.0-SNAPSHOT
 * You can change the required properties if needed :
 
-    - tycho_version : the tycho version that will be used to build the project in command line. Defaults to 0.15.0
+    - tycho_version : the tycho version that will be used to build the project in command line. Defaults to 0.16.0
     - eclipse_platform : the Eclipse platform, will drive what eclipse update site will be used to resolve the Eclipse dependencies.
-    Supported values are : `helios`, `indigo`, `juno`. Defaults to `juno` .
+    Supported values are : `helios`, `indigo`, `juno`, `kepler`. Defaults to `juno` .
 * Hit Finish
 * Wait for awesomeness
 * Once the projects are created, you can start testing Eclipse hosted mode, run JUnit Plug-in tests ...
 
 You can then build your projects in command line, in a terminal, by issuing :
 
-    mvn clean install
+    mvn clean verify
 
 An zipped update site will be created as `<project.parent>/<project.site>/target/<project.site>-<project.version>-site.zip`.
