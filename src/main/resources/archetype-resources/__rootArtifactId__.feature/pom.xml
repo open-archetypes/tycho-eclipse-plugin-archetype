@@ -6,9 +6,7 @@
 		<groupId>${groupId}</groupId>
 		<version>${version}</version>
 	</parent>
-	<groupId>${groupId}</groupId>
 	<artifactId>${artifactId}</artifactId>
-	<version>${version}</version>
 	<packaging>eclipse-feature</packaging>
 	<name>${rootArtifactId} :: feature</name>
 </project>

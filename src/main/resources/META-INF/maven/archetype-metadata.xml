@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><archetype-descriptor name="eclipse.plugin.archetype">
   <requiredProperties>
     <requiredProperty key="tycho_version">
-      <defaultValue>0.15.0</defaultValue>
+      <defaultValue>0.16.0</defaultValue>
     </requiredProperty>
     <requiredProperty key="eclipse_platform">
       <defaultValue>juno</defaultValue>
@@ -81,15 +81,9 @@
     <module id="${rootArtifactId}.site" dir="__rootArtifactId__.site" name="${rootArtifactId}.site">
       <fileSets>
         <fileSet filtered="true" encoding="UTF-8">
-          <directory>src/main/assembly</directory>
-          <includes>
-            <include>**/*.xml</include>
-          </includes>
-        </fileSet>
-        <fileSet filtered="true" encoding="UTF-8">
           <directory></directory>
           <includes>
-            <include>site.xml</include>
+            <include>category.xml</include>
           </includes>
         </fileSet>
       </fileSets>

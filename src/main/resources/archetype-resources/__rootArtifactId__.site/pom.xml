@@ -6,40 +6,7 @@
 		<groupId>${groupId}</groupId>
 		<version>${version}</version>
 	</parent>
-	<groupId>${groupId}</groupId>
 	<artifactId>${artifactId}</artifactId>
-	<version>${version}</version>
-	<packaging>eclipse-update-site</packaging>
+	<packaging>eclipse-repository</packaging>
 	<name>${rootArtifactId} :: update site</name>
-	<build>
-		<plugins>
-         <plugin>
-             <groupId>org.eclipse.tycho</groupId>
-            <artifactId>tycho-packaging-plugin</artifactId>
-            <version>${symbol_dollar}{tycho.version}</version>
-            <configuration>
-              <metadataRepositoryName>${rootArtifactId} Plugin</metadataRepositoryName>
-			  <artifactRepositoryName>${rootArtifactId} Plugin</artifactRepositoryName>
-            </configuration>
-          </plugin>
-            <plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<configuration>
-					<descriptors>
-						<descriptor>src/main/assembly/assembly.xml</descriptor>
-					</descriptors>
-				</configuration>
-				<executions>
-					<execution>
-						<id>make-assembly</id>
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
 </project>

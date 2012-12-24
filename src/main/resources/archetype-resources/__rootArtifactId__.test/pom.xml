@@ -6,9 +6,7 @@
 		<version>${version}</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
-  <groupId>${groupId}</groupId>
   <artifactId>${artifactId}</artifactId>
-  <version>${version}</version>
   <packaging>eclipse-test-plugin</packaging>
   <name>${rootArtifactId} :: test</name>
   <description>${rootArtifactId} Test Plugin</description>
