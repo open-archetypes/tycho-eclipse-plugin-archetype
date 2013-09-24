@@ -54,7 +54,7 @@ Now you can create a new project, using the Maven wizard :
 * Enter the Group Id, Artifact Id and Version informations. Eclipse requires the version to follow a Major.Minor.Micro pattern, so you should use 1.0.0-SNAPSHOT instead of 1.0-SNAPSHOT
 * You can change the required properties if needed :
 
-    - tycho_version : the tycho version that will be used to build the project in command line. Defaults to 0.16.0
+    - tycho_version : the tycho version that will be used to build the project in command line. Defaults to 0.18.1
     - eclipse_platform : the Eclipse platform, will drive what eclipse update site will be used to resolve the Eclipse dependencies.
     Supported values are : `helios`, `indigo`, `juno`, `kepler`. Defaults to `juno` .
 * Hit Finish
