@@ -6,6 +6,11 @@
 #else 
 #set ($futureVersion = $version)
 #end
+#if ($eclipse_platform == "helios" || $eclipse_platform == "indigo" || $eclipse_platform == "juno")
+#set ($junitBundle = 'org.junit4;bundle-version="4.5.0"')
+#else 
+#set ($junitBundle = 'org.junit;bundle-version="4.11"')
+#end
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ${rootArtifactId} Test Fragment
@@ -15,4 +20,4 @@ Fragment-Host: ${rootArtifactId}.core;bundle-version="${futureVersion}"
 Bundle-RequiredExecutionEnvironment: J2SE-1.5,
  JavaSE-1.6
 Require-Bundle: org.eclipse.jdt.junit4.runtime;bundle-version="1.1.0",
- org.junit4;bundle-version="4.5.0"
+ ${junitBundle}

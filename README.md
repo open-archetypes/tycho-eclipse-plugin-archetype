@@ -56,7 +56,7 @@ Now you can create a new project, using the Maven wizard :
 
     - tycho_version : the tycho version that will be used to build the project in command line. Defaults to 0.18.1
     - eclipse_platform : the Eclipse platform, will drive what eclipse update site will be used to resolve the Eclipse dependencies.
-    Supported values are : `helios`, `indigo`, `juno`, `kepler`. Defaults to `juno` .
+    Supported values are : `helios`, `indigo`, `juno`, `kepler`. Defaults to `kepler` .
 * Hit Finish
 * Wait for awesomeness
 * Once the projects are created, you can start testing Eclipse hosted mode, run JUnit Plug-in tests ...

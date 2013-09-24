@@ -4,7 +4,7 @@
       <defaultValue>0.18.1</defaultValue>
     </requiredProperty>
     <requiredProperty key="eclipse_platform">
-      <defaultValue>juno</defaultValue>
+      <defaultValue>kepler</defaultValue>
     </requiredProperty>
   </requiredProperties>
   <fileSets>
