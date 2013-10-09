@@ -66,3 +66,11 @@ You can then build your projects in command line, in a terminal, by issuing :
     mvn clean verify
 
 An zipped update site will be created as `<project.parent>/<project.site>/target/<project.site>-<project.version>-site.zip`.
+
+
+Alternative archetypes
+----------------------
+You can find somewhat similar tycho-based archetypes based on :
+
+* Groovy : https://github.com/open-archetypes/groovy-eclipse-plugin-archetype
+* XText : https://github.com/fuinorg/emt-xtext-archetype
