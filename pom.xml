@@ -12,31 +12,28 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.openarchetypes</groupId>
   <artifactId>tycho-eclipse-plugin-archetype</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>maven-archetype</packaging>
-  <name>maven-archetype-tycho-release</name>
-  <description>Project for develop and release with tycho.</description>
+  <name>tycho-eclipse-plugin-archetype</name>
+  <description>Creates multiple, Tycho-built, eclipse-plugin projects : Parent project, Core plugin, Test fragment, Feature and Update plugins.  </description>
   <inceptionYear>2010</inceptionYear>
   <licenses>
-    <license>
-      <name>The Apache Software License, Version 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-      <distribution>repo</distribution>
-    </license>
+      <license>
+          <name>The Apache Software License, Version 2.0</name>
+          <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+          <distribution>repo</distribution>
+      </license>
   </licenses>
   <developers>
-    <developer>
-      <id>fbricon</id>
-      <name>Fred Bricon</name>
-    </developer>
-    <developer>
-      <id>ko2ic</id>
-      <name>Koji Ishii</name>
-    </developer>
+  	<developer>
+  		<id>fbricon</id>
+  		<name>Fred Bricon</name>
+  	</developer>
   </developers>
   <build>
     <extensions>
@@ -48,7 +45,6 @@
     </extensions>
     <plugins>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-archetype-plugin</artifactId>
         <version>2.2</version>
         <extensions>true</extensions>
