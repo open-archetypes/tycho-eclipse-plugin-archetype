@@ -15,62 +15,69 @@ This archetype will create a multi-modules project with a nested structure :
 
 The generated plugin is based on the Hello World template from the PDE Wizard :
 
-    [...] creates a simple action set that adds Sample Menu to the menu bar and a button to the tool bar. 
-    Both the menu item in the new menu and the button invoke the same Sample Action. 
+    [...] creates a simple handler set that adds Sample Menu to the menu bar and a button to the tool bar. 
+    Both the menu item in the new menu and the button invoke the same Sample Handler. 
     Its role is to open a simple message dialog with a message of your choice.
 
-     
 This archetype is an updated version of the one I gave to https://issues.sonatype.org/browse/TYCHO-442
 
 Pre-Requisites :
 -------------------
 
-* JDK 1.6 or later
+* JDK 1.7 or later
 * maven 3.0 or later
-* Eclipse Helios (3.6) with PDE or later (Juno (4.2) is the default target)
-* m2e 1.1 or later
-* m2eclipse-tycho 0.6 or later
+* Eclipse Kepler (4.3.2) with PDE
 
 How to use
 -------------------
 
-In Eclipse, first add the Open Archetypes catalog :
-
-* On the Archetypes Preferences page (Window > Preferences > Maven > Archetypes), click on the "Add Remote Catalog..." button
-
-    - Catalog file : http://open-archetypes.github.com/maven-repo/snapshots/
-    - Description : Open Archetypes (Snapshots)
-
-* Click OK to close the dialog
-* Click OK to close the preferences
-
-Now you can create a new project, using the Maven wizard :    
-
-* Create a new Maven project
-* Click Next to land on the Archetype page
-* Select the `Open Archetypes (Snapshots)` catalog
-* Check the "Include Snapshots" button
-* Select `tycho-eclipse-plugin-archetype` and click Next
-* Enter the Group Id, Artifact Id and Version informations. Eclipse requires the version to follow a Major.Minor.Micro pattern, so you should use 1.0.0-SNAPSHOT instead of 1.0-SNAPSHOT
-* You can change the required properties if needed :
-
-    - tycho_version : the tycho version that will be used to build the project in command line. Defaults to 0.18.1
-    - eclipse_platform : the Eclipse platform, will drive what eclipse update site will be used to resolve the Eclipse dependencies.
-    Supported values are : `helios`, `indigo`, `juno`, `kepler`. Defaults to `kepler` .
-* Hit Finish
-* Wait for awesomeness
-* Once the projects are created, you can start testing Eclipse hosted mode, run JUnit Plug-in tests ...
+* You will clone this project and install this project to local maven repository.   
+```
+$ git clone https://github.com/ko2ic/tycho-eclipse-plugin-archetype.git
+$ cd tycho-eclipse-plugin-archetype   
+$ mvn install   
+```
+* A new project is created by selecting the local archetype. (About a version, you should select numeric value like Major.Minor.Revision-SNAPSHOT but not Major.Minor) 
+```
+$ mvn archetype:generate -DarchetypeCatalog=local
+[INFO] Generating project in Interactive mode
+...
+1: local -> org.openarchetypes:tycho-eclipse-plugin-archetype (Project for develop and release with tycho.)
+Choose a number or apply filter (format: [groupId:]artifactId, case sensitive contains): :1
+```     
+* It will enable to work in eclipse by the follow command.
+```
+$ mvn eclipse:eclipse
+```
+If 'Version' contains '-SNAPSHOT', 'Bundle-Version' in MANIFEST.MF unintentionally replaces 'qualifier' to 'SNAPSHOT'.  
+So You must revert 'qualifier' of the file.
 
 You can then build your projects in command line, in a terminal, by issuing :
+```
+$ mvn clean verify
+```
+An zipped update site will be created as 
+```
+/~.site/target/~site-<version>.zip
+```
 
-    mvn clean verify
+A Signed jar will be created by the follow command
+```
+$ mvn package -Psign
+```
 
-An zipped update site will be created as `<project.parent>/<project.site>/target/<project.site>-<project.version>-site.zip`.
-
-
-Alternative archetypes
-----------------------
-You can find somewhat similar tycho-based archetypes based on :
-
-* Groovy : https://github.com/open-archetypes/groovy-eclipse-plugin-archetype
-* XText : https://github.com/fuinorg/emt-xtext-archetype
+Add devendency jar:  
+You can add <dependency> tag in pom.xml of root.   
+In Eclipse, you should add 'libs/' to the first of value of 'Bundle-ClassPath:' in MANIFEST.MF.   
+Otherwise, a created Plugin won't recognize the added dependency jar.  
+ex)
+```
+Bundle-ClassPath: .,
+ libs/poi-ooxml-3.10-beta2.jar,
+ libs/poi-3.10-beta2.jar,
+ libs/poi-ooxml-schemas-3.10-beta2.jar,
+ libs/xmlbeans-2.3.0.jar,
+ libs/stax-api-1.0.1.jar,
+ libs/dom4j-1.6.1.jar,
+ libs/xml-apis-1.0.b2.jar
+```
