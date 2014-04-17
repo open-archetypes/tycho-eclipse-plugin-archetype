@@ -1,13 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<parent>
-		<artifactId>${rootArtifactId}</artifactId>
-		<groupId>${groupId}</groupId>
-		<version>${version}</version>
-	</parent>
-	<modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>${rootArtifactId}</artifactId>
+    <groupId>${groupId}</groupId>
+    <version>${version}</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
   <artifactId>${artifactId}</artifactId>
   <packaging>eclipse-plugin</packaging>
   <name>${rootArtifactId} :: core</name>
   <description>${rootArtifactId} Core Plugin</description>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-source-plugin</artifactId>
+        <version>${tycho.version}</version>
+        <executions>
+          <execution>
+            <id>attach-source</id>
+            <goals>
+              <goal>plugin-source</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+  </build>
+
+  <profiles>
+    <profile>
+      <id>sign</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.eclipse.tycho.extras</groupId>
+            <artifactId>tycho-pack200a-plugin</artifactId>
+            <version>${tycho.version}</version>
+            <executions>
+              <execution>
+                <id>pack200-normalize</id>
+                <goals>
+                  <goal>normalize</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jarsigner-plugin</artifactId>
+            <version>${jarsigner.version}</version>
+            <inherited>true</inherited>
+            <configuration>
+              <removeExistingSignatures>true</removeExistingSignatures>
+              <archiveDirectory />
+              <verbose>true</verbose>
+              <certs>true</certs>
+              <keystore>${sign.keystore}</keystore>
+              <alias>${sign.alias}</alias>
+              <storepass>${sign.storepass}</storepass>
+              <keypass>${sign.keypass}</keypass>
+            </configuration>
+            <executions>
+              <execution>
+                <id>sign</id>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+
+          <plugin>
+            <groupId>org.eclipse.tycho.extras</groupId>
+            <artifactId>tycho-pack200b-plugin</artifactId>
+            <version>${tycho.version}</version>
+            <executions>
+              <execution>
+                <id>pack200-pack</id>
+                <goals>
+                  <goal>pack</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+
+          <plugin>
+            <groupId>org.eclipse.tycho</groupId>
+            <artifactId>tycho-p2-plugin</artifactId>
+            <version>${tycho.version}</version>
+            <executions>
+              <execution>
+                <id>attach-p2-metadata</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>p2-metadata</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <defaultP2Metadata>false</defaultP2Metadata>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
 </project>

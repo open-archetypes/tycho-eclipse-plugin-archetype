@@ -8,5 +8,7 @@
 #end
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/${parentArtifactId}.feature_${futureVersion}.qualifier.jar" id="${parentArtifactId}.feature" version="${futureVersion}.qualifier"/>
+   <feature url="features/${parentArtifactId}.feature_${futureVersion}.qualifier.jar" id="${parentArtifactId}.feature" version="${futureVersion}.qualifier">
+    <category name="${parentArtifactId}"/>
+   </feature>
 </site>
