@@ -1,17 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?><archetype-descriptor name="eclipse.plugin.archetype">
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor name="eclipse.plugin.archetype">
   <requiredProperties>
+    <requiredProperty key="version">
+      <defaultValue>1.0.0-SNAPSHOT</defaultValue>
+    </requiredProperty>  
     <requiredProperty key="tycho_version">
       <defaultValue>0.20.0</defaultValue>
     </requiredProperty>
     <requiredProperty key="eclipse_platform">
       <defaultValue>kepler</defaultValue>
     </requiredProperty>
+    <requiredProperty key="signing_support">
+      <defaultValue>false</defaultValue>
+    </requiredProperty>
   </requiredProperties>
   <fileSets>
-    <fileSet encoding="UTF-8">
+    <fileSet encoding="UTF-8"  filtered="true">
       <directory></directory>
       <includes>
         <include>Eclipse Application.launch</include>
+        <include>*.md</include>
       </includes>
     </fileSet>
   </fileSets>

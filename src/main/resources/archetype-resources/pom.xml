@@ -16,10 +16,14 @@
   </prerequisites>
 
   <properties>
-    <java.version>1.5</java.version>
-  	<maven.version>3.0</maven.version>
-  	<tycho.version>${tycho_version}</tycho.version>
-  	<tycho.test.jvmArgs>-Xmx512m -XX:MaxPermSize=256m</tycho.test.jvmArgs>
+    <java.version>1.7</java.version>
+    <tycho.version>${tycho_version}</tycho.version>
+    <tycho.extras.version>${tycho_version}</tycho.extras.version>
+    <tycho.test.jvmArgs>-Xmx512m -XX:MaxPermSize=256m</tycho.test.jvmArgs>
+#if ($signing_support == "true" || $signing_support == "y" || $signing_support == "yes" )
+    <jarsigner.version>1.3.2</jarsigner.version>
+#end
+
   </properties>
 
   <repositories>
@@ -42,7 +46,7 @@
     <plugins>
       <plugin>
         <groupId>org.eclipse.tycho</groupId>
-		<artifactId>tycho-maven-plugin</artifactId>
+        <artifactId>tycho-maven-plugin</artifactId>
         <version>${symbol_dollar}{tycho.version}</version>
         <extensions>true</extensions>
       </plugin>
@@ -55,6 +59,19 @@
           <pomDependencies>consider</pomDependencies>
           <ignoreTychoRepositories>true</ignoreTychoRepositories>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-source-plugin</artifactId>
+        <version>${symbol_dollar}{tycho.version}</version>
+        <executions>
+          <execution>
+            <id>attach-source</id>
+            <goals>
+              <goal>plugin-source</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
 
@@ -82,12 +99,148 @@
             <forkedProcessTimeoutInSeconds>60</forkedProcessTimeoutInSeconds>
           </configuration>
         </plugin>
-        <plugin>
-        	<groupId>org.apache.maven.plugins</groupId>
-        	<artifactId>maven-assembly-plugin</artifactId>
-        	<version>2.3</version>
-        </plugin>
       </plugins>
     </pluginManagement>
-  </build>  
+  </build>
+  <profiles>
+    <profile>
+      <id>macosx</id>
+      <activation>
+        <os><family>mac</family></os>
+      </activation>
+      <properties>
+        <tycho.test.jvmArgs>-Xmx512m -XX:MaxPermSize=256m -XstartOnFirstThread</tycho.test.jvmArgs>
+      </properties>
+    </profile>
+    <profile>
+      <id>source-feature</id>
+      <activation>
+      <file>
+        <exists>feature.xml</exists>
+      </file>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.eclipse.tycho.extras</groupId>
+            <artifactId>tycho-source-feature-plugin</artifactId>
+            <version>${symbol_dollar}{tycho.extras.version}</version>
+            <executions>
+              <execution>
+                <id>source-feature</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>source-feature</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.eclipse.tycho</groupId>
+            <artifactId>tycho-p2-plugin</artifactId>
+            <version>${symbol_dollar}{tycho.version}</version>
+            <executions>
+              <execution>
+                <id>attach-p2-metadata</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>p2-metadata</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+#if ($signing_support == "true" || $signing_support == "y" || $signing_support == "yes" )
+    <profile>
+      <id>sign</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.eclipse.tycho</groupId>
+            <artifactId>target-platform-configuration</artifactId>
+            <version>${symbol_dollar}{tycho.version}</version>
+            <configuration>
+              <includePackedArtifacts>true</includePackedArtifacts>
+            </configuration>
+          </plugin>
+
+          <plugin>
+            <groupId>org.eclipse.tycho.extras</groupId>
+            <artifactId>tycho-pack200a-plugin</artifactId>
+            <version>${symbol_dollar}{tycho.extras.version}</version>
+            <executions>
+              <execution>
+                <id>pack200-normalize</id>
+                <goals>
+                  <goal>normalize</goal>
+                </goals>
+                <phase>verify</phase>
+              </execution>
+            </executions>
+          </plugin>
+
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jarsigner-plugin</artifactId>
+            <version>${jarsigner.version}</version>
+            <inherited>true</inherited>
+            <configuration>
+              <removeExistingSignatures>true</removeExistingSignatures>
+              <archiveDirectory />
+              <verbose>true</verbose>
+              <certs>true</certs>
+              <keystore>${sign.keystore}</keystore>
+              <alias>${sign.alias}</alias>
+              <storepass>${sign.storepass}</storepass>
+              <keypass>${sign.keypass}</keypass>
+            </configuration>
+            <executions>
+              <execution>
+                <id>sign</id>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+
+          <plugin>
+            <groupId>org.eclipse.tycho.extras</groupId>
+            <artifactId>tycho-pack200b-plugin</artifactId>
+            <version>${symbol_dollar}{tycho.extras.version}</version>
+            <executions>
+              <execution>
+                <id>pack200-pack</id>
+                <goals>
+                  <goal>pack</goal>
+                </goals>
+                <phase>verify</phase>
+              </execution>
+            </executions>
+          </plugin>
+
+          <plugin>
+            <groupId>org.eclipse.tycho</groupId>
+            <artifactId>tycho-p2-plugin</artifactId>
+            <version>${symbol_dollar}{tycho.version}</version>
+            <executions>
+              <execution>
+                <id>p2-metadata</id>
+                <goals>
+                  <goal>p2-metadata</goal>
+                </goals>
+                <phase>package</phase>
+              </execution>
+              </executions>
+            <configuration>
+              <defaultP2Metadata>false</defaultP2Metadata>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+#end
+  </profiles>
 </project>

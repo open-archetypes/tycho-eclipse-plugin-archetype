@@ -15,17 +15,17 @@ This archetype will create a multi-modules project with a nested structure :
 
 The generated plugin is based on the Hello World template from the PDE Wizard :
 
-    [...] creates a simple action set that adds Sample Menu to the menu bar and a button to the tool bar. 
-    Both the menu item in the new menu and the button invoke the same Sample Action. 
+    [...] creates a simple handler set that adds Sample Menu to the menu bar and a button to the tool bar.
+    Both the menu item in the new menu and the button invoke the same Sample Handler.
     Its role is to open a simple message dialog with a message of your choice.
 
-     
+
 This archetype is an updated version of the one I gave to https://issues.sonatype.org/browse/TYCHO-442
 
 Pre-Requisites :
 -------------------
 
-* JDK 1.6 or later
+* JDK 1.7 or later
 * maven 3.0 or later
 * Eclipse Helios (3.6) with PDE or later (Kepler (4.3) is the default target)
 * m2e 1.1 or later
@@ -65,9 +65,27 @@ You can then build your projects in command line, in a terminal, by issuing :
 
     mvn clean verify
 
+A zipped update site will be created as `<project.parent>/<project.site>/target/<project.site>-<project.version>-site.zip`.
 
-An zipped update site will be created as `<project.parent>/<project.site>/target/<project.site>-<project.version>-site.zip`.
+Signed artifacts will be created when the `sign` profile is used.
 
+    mvn package -Psign
+
+In order to sign artifacts, you will need to generate/provide a keystore first (see http://docs.oracle.com/javase/6/docs/technotes/tools/solaris/jarsigner.html) and configure your settings.xml like :　　
+
+```
+  <profiles>
+    <profile>
+    <id>sign</id>
+      <properties>
+        <sign.keystore>~/.ssh/sample.keystore</sign.keystore>
+        <sign.alias>sample</sign.alias>
+        <sign.storepass>samplepass</sign.storepass>
+        <sign.keypass>samplepass</sign.keypass>
+      </properties>
+    </profile>
+  </profiles>
+```
 
 Alternative archetypes
 ----------------------
