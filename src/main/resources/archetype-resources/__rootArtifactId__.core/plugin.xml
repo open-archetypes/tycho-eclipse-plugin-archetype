@@ -5,28 +5,53 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         point="org.eclipse.ui.actionSets">
-      <actionSet
-            label="${parentArtifactId} Sample Action Set"
-            visible="true"
-            id="${parentArtifactId}.core.actionSet">
+         point="org.eclipse.ui.commands">
+      <category
+            name="sample category"
+            id="category.sample.id">
+      </category>
+      <command
+            name="sample command"
+            categoryId="category.sample.id"
+            id="command.sample.id">
+      </command>
+   </extension>   
+
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="command.sample.id"
+            class="${package}.core.SampleHandler">
+      </handler>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
          <menu
-               label="${parentArtifactId} Sample &amp;Menu"
-               id="sampleMenu">
-            <separator
-                  name="sampleGroup">
-            </separator>
+               id="menu.sample.id"
+               label="Sample &amp;Menu">
+            <command
+                  commandId="command.sample.id"
+                  mnemonic="S"
+                  id="command.sample.menu.memonic.id">
+            </command>               
          </menu>
-         <action
-               label="&amp;${parentArtifactId} Sample Action"
-               icon="icons/sample.gif"
-               class="${package}.core.SampleAction"
-               tooltip="Hello, Mavenized Eclipse. ${parentArtifactId} is built with Tycho"
-               menubarPath="sampleMenu/sampleGroup"
-               toolbarPath="sampleGroup"
-               id="${package}.core.SampleAction">
-         </action>
-      </actionSet>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="toolbar.sample.id">
+            <command
+                  commandId="command.sample.id"
+                  icon="icons/sample.gif"
+                  tooltip="&amp;sample Sample Action"
+                  id="sampleAction.id">
+            </command>
+         </toolbar>
+      </menuContribution>      
    </extension>
 
 </plugin>

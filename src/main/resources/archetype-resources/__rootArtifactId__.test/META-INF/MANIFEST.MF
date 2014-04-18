@@ -17,7 +17,6 @@ Bundle-Name: ${rootArtifactId} Test Fragment
 Bundle-SymbolicName: ${rootArtifactId}.test
 Bundle-Version: ${futureVersion}.qualifier
 Fragment-Host: ${rootArtifactId}.core;bundle-version="${futureVersion}"
-Bundle-RequiredExecutionEnvironment: J2SE-1.5,
- JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.eclipse.jdt.junit4.runtime;bundle-version="1.1.0",
  ${junitBundle}
