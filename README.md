@@ -25,7 +25,7 @@ This archetype is an updated version of the one I gave to https://issues.sonatyp
 Pre-Requisites :
 -------------------
 
-* JDK 1.7 or later
+* JDK 1.7 or later (Java 1.8 is the default target)
 * maven 3.0 or later
 * Eclipse Juno (3.6) with PDE or later (Luna (4.4) is the default target)
 * m2e 1.1 or later
@@ -53,8 +53,8 @@ Now you can create a new project, using the Maven wizard :
 * Select `tycho-eclipse-plugin-archetype` and click Next
 * Enter the Group Id, Artifact Id and Version informations. Eclipse requires the version to follow a Major.Minor.Micro pattern, so you should use 1.0.0-SNAPSHOT instead of 1.0-SNAPSHOT
 * You can change the required properties if needed :
-
-    - tycho_version : the tycho version that will be used to build the project in command line. Defaults to 0.20.0
+    - java_version : The Java version to be used for compiling the plugins. Supported values are `1.7`, `1.8`. Defaults to `1.8`
+    - tycho_version : the tycho version that will be used to build the project in command line. Defaults to `0.22.0`
     - eclipse_platform : the Eclipse platform, will drive what eclipse update site will be used to resolve the Eclipse dependencies.
     Supported values are : `helios`, `indigo`, `juno`, `kepler`, `luna`, `mars`. Defaults to `luna` .
 * Hit Finish

@@ -3,7 +3,7 @@
 #set( $symbol_escape = '\' )
 #if ($version.endsWith('-SNAPSHOT'))
 #set ($futureVersion = $version.substring(0,$version.indexOf('-SNAPSHOT')))
-#else 
+#else
 #set ($futureVersion = $version)
 #end
 Manifest-Version: 1.0
@@ -15,4 +15,4 @@ Bundle-Activator: ${package}.core.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-$java_version

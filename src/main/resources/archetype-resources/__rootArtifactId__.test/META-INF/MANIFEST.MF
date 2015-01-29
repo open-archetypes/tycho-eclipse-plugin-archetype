@@ -3,12 +3,12 @@
 #set( $symbol_escape = '\' )
 #if ($version.endsWith('-SNAPSHOT'))
 #set ($futureVersion = $version.substring(0,$version.indexOf('-SNAPSHOT')))
-#else 
+#else
 #set ($futureVersion = $version)
 #end
 #if ($eclipse_platform == "helios" || $eclipse_platform == "indigo" || $eclipse_platform == "juno")
 #set ($junitBundle = 'org.junit4;bundle-version="4.5.0"')
-#else 
+#else
 #set ($junitBundle = 'org.junit;bundle-version="4.11"')
 #end
 Manifest-Version: 1.0
@@ -17,6 +17,6 @@ Bundle-Name: ${rootArtifactId} Test Fragment
 Bundle-SymbolicName: ${rootArtifactId}.test
 Bundle-Version: ${futureVersion}.qualifier
 Fragment-Host: ${rootArtifactId}.core;bundle-version="${futureVersion}"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-$java_version
 Require-Bundle: org.eclipse.jdt.junit4.runtime;bundle-version="1.1.0",
  ${junitBundle}

@@ -18,10 +18,14 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <java.version>1.7</java.version>
     <tycho.version>${tycho_version}</tycho.version>
     <tycho.extras.version>${tycho_version}</tycho.extras.version>
-    <tycho.test.jvmArgs>-Xmx512m -XX:MaxPermSize=256m</tycho.test.jvmArgs>
+    <tycho.test.platformArgs></tycho.test.platformArgs>
+#if ($java_version == "1.6" || $java_version == "1.7")
+    <tycho.test.jvmArgs>-Xmx512m -XX:MaxPermSize=256m ${tycho.test.platformArgs}</tycho.test.jvmArgs>
+#else
+    <tycho.test.jvmArgs>-Xmx512m</tycho.test.jvmArgs>
+#end
 #if ($signing_support == "true" || $signing_support == "y" || $signing_support == "yes" )
     <jarsigner.version>1.4</jarsigner.version>
 #end
@@ -99,7 +103,7 @@
         <os><family>mac</family></os>
       </activation>
       <properties>
-        <tycho.test.jvmArgs>-Xmx512m -XX:MaxPermSize=256m -XstartOnFirstThread</tycho.test.jvmArgs>
+        <tycho.test.platformArgs>-XstartOnFirstThread</tycho.test.platformArgs>
       </properties>
     </profile>
     <profile>
