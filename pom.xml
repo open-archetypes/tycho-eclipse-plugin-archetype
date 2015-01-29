@@ -12,12 +12,11 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.openarchetypes</groupId>
   <artifactId>tycho-eclipse-plugin-archetype</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0</version>
   <packaging>maven-archetype</packaging>
   <name>tycho-eclipse-plugin-archetype</name>
   <description>Creates multiple, Tycho-built, eclipse-plugin projects : Parent project, Core plugin, Test fragment, Feature and Update plugins.  </description>
@@ -33,7 +32,7 @@
     <connection>scm:git:https://github.com/open-archetypes/tycho-eclipse-plugin-archetype.git</connection>
     <developerConnection>scm:git:git@github.com:open-archetypes/tycho-eclipse-plugin-archetype.git</developerConnection>
     <url>https://github.com/open-archetypes/tycho-eclipse-plugin-archetype</url>
-    <tag>HEAD</tag>
+    <tag>v1.0.0</tag>
   </scm>
   <developers>
   	<developer>
