@@ -15,7 +15,7 @@
             categoryId="category.sample.id"
             id="command.sample.id">
       </command>
-   </extension>   
+   </extension>
 
    <extension
          point="org.eclipse.ui.handlers">
@@ -24,7 +24,7 @@
             class="${package}.core.SampleHandler">
       </handler>
    </extension>
-   
+
    <extension
          point="org.eclipse.ui.menus">
       <menuContribution
@@ -37,7 +37,7 @@
                   commandId="command.sample.id"
                   mnemonic="S"
                   id="command.sample.menu.memonic.id">
-            </command>               
+            </command>
          </menu>
       </menuContribution>
       <menuContribution
@@ -51,7 +51,7 @@
                   id="sampleAction.id">
             </command>
          </toolbar>
-      </menuContribution>      
+      </menuContribution>
    </extension>
 
 </plugin>

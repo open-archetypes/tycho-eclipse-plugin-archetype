@@ -21,7 +21,7 @@
     <tycho.extras.version>${tycho_version}</tycho.extras.version>
     <tycho.test.jvmArgs>-Xmx512m -XX:MaxPermSize=256m</tycho.test.jvmArgs>
 #if ($signing_support == "true" || $signing_support == "y" || $signing_support == "yes" )
-    <jarsigner.version>1.3.2</jarsigner.version>
+    <jarsigner.version>1.4</jarsigner.version>
 #end
 
   </properties>
@@ -33,15 +33,6 @@
       <url>http://download.eclipse.org/releases/${eclipse_platform}</url>
     </repository>
   </repositories>
-
-  <pluginRepositories>
-    <pluginRepository>
-      <id>sonatype-public</id>
-      <url>http://repository.sonatype.org/content/groups/sonatype-public-grid</url>
-    </pluginRepository>
-  </pluginRepositories>
-
-
   <build>
     <plugins>
       <plugin>
@@ -91,9 +82,6 @@
           <version>${symbol_dollar}{tycho.version}</version>
           <configuration>
             <useUIHarness>true</useUIHarness>
-            <includes>
-              <include>**/*Test.java</include>
-            </includes>
             <argLine>${symbol_dollar}{tycho.test.jvmArgs}</argLine>
             <!-- kill test JVM if tests take more than 1 minute (60 seconds) to finish -->
             <forkedProcessTimeoutInSeconds>60</forkedProcessTimeoutInSeconds>

@@ -3,12 +3,12 @@
   <requiredProperties>
     <requiredProperty key="version">
       <defaultValue>1.0.0-SNAPSHOT</defaultValue>
-    </requiredProperty>  
+    </requiredProperty>
     <requiredProperty key="tycho_version">
-      <defaultValue>0.20.0</defaultValue>
+      <defaultValue>0.22.0</defaultValue>
     </requiredProperty>
     <requiredProperty key="eclipse_platform">
-      <defaultValue>kepler</defaultValue>
+      <defaultValue>luna</defaultValue>
     </requiredProperty>
     <requiredProperty key="signing_support">
       <defaultValue>false</defaultValue>

@@ -5,9 +5,9 @@ This archetype will create a multi-modules project with a nested structure :
 
      __artifactId__    : parent pom project
      |
-     |---__artifactId__.core   : eclipse-plugin 
+     |---__artifactId__.core   : eclipse-plugin
      |
-     |---__artifactId__.feature: eclipse-feature 
+     |---__artifactId__.feature: eclipse-feature
      |
      |---__artifactId__.test   : eclipse-test-plugin (Fragment project)
      |
@@ -27,7 +27,7 @@ Pre-Requisites :
 
 * JDK 1.7 or later
 * maven 3.0 or later
-* Eclipse Helios (3.6) with PDE or later (Kepler (4.3) is the default target)
+* Eclipse Juno (3.6) with PDE or later (Luna (4.4) is the default target)
 * m2e 1.1 or later
 * m2eclipse-tycho 0.6 or later
 
@@ -44,7 +44,7 @@ In Eclipse, first add the Open Archetypes catalog :
 * Click OK to close the dialog
 * Click OK to close the preferences
 
-Now you can create a new project, using the Maven wizard :    
+Now you can create a new project, using the Maven wizard :
 
 * Create a new Maven project
 * Click Next to land on the Archetype page
@@ -56,7 +56,7 @@ Now you can create a new project, using the Maven wizard :
 
     - tycho_version : the tycho version that will be used to build the project in command line. Defaults to 0.20.0
     - eclipse_platform : the Eclipse platform, will drive what eclipse update site will be used to resolve the Eclipse dependencies.
-    Supported values are : `helios`, `indigo`, `juno`, `kepler`. Defaults to `kepler` .
+    Supported values are : `helios`, `indigo`, `juno`, `kepler`, `luna`, `mars`. Defaults to `luna` .
 * Hit Finish
 * Wait for awesomeness
 * Once the projects are created, you can start testing Eclipse hosted mode, run JUnit Plug-in tests ...
