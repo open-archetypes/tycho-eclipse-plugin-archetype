@@ -16,6 +16,8 @@
   </prerequisites>
 
   <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <java.version>1.7</java.version>
     <tycho.version>${tycho_version}</tycho.version>
     <tycho.extras.version>${tycho_version}</tycho.extras.version>
