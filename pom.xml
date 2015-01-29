@@ -29,6 +29,12 @@
           <distribution>repo</distribution>
       </license>
   </licenses>
+  <scm>
+    <connection>scm:git:https://github.com/open-archetypes/tycho-eclipse-plugin-archetype.git</connection>
+    <developerConnection>scm:git:git@github.com:open-archetypes/tycho-eclipse-plugin-archetype.git</developerConnection>
+    <url>https://github.com/open-archetypes/tycho-eclipse-plugin-archetype</url>
+    <tag>HEAD</tag>
+  </scm>
   <developers>
   	<developer>
   		<id>fbricon</id>
@@ -57,4 +63,10 @@
       </plugin>
     </plugins>
   </build>
+  <distributionManagement>
+    <repository>
+      <id>bintray</id>
+      <url>https://api.bintray.com/maven/open-archetypes/maven/tycho-eclipse-plugin-archetype</url>
+    </repository>
+  </distributionManagement>
 </project>
