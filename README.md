@@ -48,8 +48,7 @@ Now you can create a new project, using the Maven wizard :
 
 * Create a new Maven project
 * Click Next to land on the Archetype page
-* Select the `Open Archetypes (Snapshots)` catalog
-* Check the "Include Snapshots" button
+* Select the `Open Archetypes` catalog
 * Select `tycho-eclipse-plugin-archetype` and click Next
 * Enter the Group Id, Artifact Id and Version informations. Eclipse requires the version to follow a Major.Minor.Micro pattern, so you should use 1.0.0-SNAPSHOT instead of 1.0-SNAPSHOT
 * You can change the required properties if needed :
