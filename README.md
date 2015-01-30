@@ -38,8 +38,8 @@ In Eclipse, first add the Open Archetypes catalog :
 
 * On the Archetypes Preferences page (Window > Preferences > Maven > Archetypes), click on the "Add Remote Catalog..." button
 
-    - Catalog file : http://open-archetypes.github.com/maven-repo/snapshots/
-    - Description : Open Archetypes (Snapshots)
+    - Catalog file : http://open-archetypes.github.com/maven-repo/releases/
+    - Description : Open Archetypes
 
 * Click OK to close the dialog
 * Click OK to close the preferences
