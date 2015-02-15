@@ -34,7 +34,9 @@ Pre-Requisites :
 How to use
 -------------------
 
-In Eclipse, first add the Open Archetypes catalog :
+### In Eclipse 
+
+First add the Open Archetypes catalog :
 
 * On the Archetypes Preferences page (Window > Preferences > Maven > Archetypes), click on the "Add Remote Catalog..." button
 
@@ -59,6 +61,12 @@ Now you can create a new project, using the Maven wizard :
 * Hit Finish
 * Wait for awesomeness
 * Once the projects are created, you can start testing Eclipse hosted mode, run JUnit Plug-in tests ...
+ 
+### From command line
+
+Start maven in interactive mode by passing catalog URL:
+
+     mvn archetype:generate -DarchetypeCatalog=http://open-archetypes.github.io/maven-repo/snapshots/
 
 You can then build your projects in command line, in a terminal, by issuing :
 
