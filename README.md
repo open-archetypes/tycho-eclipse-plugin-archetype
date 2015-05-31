@@ -28,23 +28,27 @@ Pre-Requisites :
 * m2e 1.1 or later
 * m2eclipse-tycho 0.6 or later
 
-How to use
+Accessing the archetype from Eclipse
 -------------------
-
 In Eclipse, first add the Open Archetypes catalog :
 
-* On the Archetypes Preferences page (Window > Preferences > Maven > Archetypes), click on the "Add Remote Catalog..." button
+1. On the Archetypes Preferences page (Windows: `Window` > `Preferences`; OS X: `⌘,`), open `Maven` > `Archetypes`, click on the `Add Remote Catalog...` button
 
     - Catalog file : http://open-archetypes.github.com/maven-repo/releases/
-    - Description : Open Archetypes
+    - Description : "Open Archetypes"
 
-* Click OK to close the dialog
-* Click OK to close the preferences
+2. Click `OK` to close the dialog
+3. Click `OK` to close the preferences
+ 
+Accessing the archetype from command line
+-------------------
+(this section needs to be written)
 
-Now you can create a new project, using the Maven wizard :
+Creating a new project in Eclipse, using the Maven wizard
+-------------------
 
-* Create a new Maven project
-* Click Next to land on the Archetype page
+1. Create a new Maven project
+* Click `Next` to land on the Archetype page
 * Select the `Open Archetypes` catalog
 * Select `tycho-eclipse-plugin-archetype` and click Next
 * Enter the Group Id, Artifact Id and Version informations. Eclipse requires the version to follow a Major.Minor.Micro pattern, so you should use 1.0.0-SNAPSHOT instead of 1.0-SNAPSHOT
@@ -53,16 +57,21 @@ Now you can create a new project, using the Maven wizard :
     - tycho_version : the tycho version that will be used to build the project in command line. Defaults to `0.22.0`
     - eclipse_platform : the Eclipse platform, will drive what eclipse update site will be used to resolve the Eclipse dependencies.
     Supported values are : `helios`, `indigo`, `juno`, `kepler`, `luna`, `mars`. Defaults to `luna` .
-* Hit Finish
+* Hit `Finish`
 * Wait for awesomeness
-* Once the projects are created, you can start testing Eclipse hosted mode, run JUnit Plug-in tests ...
 
+Once the projects are created, you can start testing Eclipse hosted mode, run JUnit Plug-in tests ...
+
+Building the project with Maven
+-------------------
 You can then build your projects in command line, in a terminal, by issuing :
 
     mvn clean verify
 
 A zipped update site will be created as `<project.parent>/<project.site>/target/<project.site>-<project.version>-site.zip`.
 
+Signed artifacts
+-------------------
 Signed artifacts will be created when the `sign` profile is used.
 
     mvn package -Psign
