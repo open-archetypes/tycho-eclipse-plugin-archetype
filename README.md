@@ -19,9 +19,6 @@ The generated plugin is based on the Hello World template from the PDE Wizard :
     Both the menu item in the new menu and the button invoke the same Sample Handler.
     Its role is to open a simple message dialog with a message of your choice.
 
-
-This archetype is an updated version of the one I gave to https://issues.sonatype.org/browse/TYCHO-442
-
 Pre-Requisites :
 -------------------
 
