@@ -42,7 +42,14 @@ In Eclipse, first add the Open Archetypes catalog :
  
 Accessing the archetype from command line
 -------------------
-(this section needs to be written)
+Open your terminal or Windows CMD:
+
+1. Execute `mvn archetype:generate -DarchetypeCatalog=http://open-archetypes.github.com/maven-repo/releases/ -DarchetypeGroupId=org.openarchetypes -DarchetypeArtifactId=tycho-eclipse-plugin-archetype`
+2. Enter the groupId
+3. Enter the artifactId
+4. Enter the name of the package under which your code will be created
+5. Enter the version of your project
+6. Confirm
 
 Creating a new project in Eclipse, using the Maven wizard
 -------------------
