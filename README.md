@@ -32,10 +32,10 @@ Accessing the archetype from Eclipse
 -------------------
 In Eclipse, first add the Open Archetypes catalog :
 
-1. On the Archetypes Preferences page (Windows: `Window` > `Preferences`; OS X: `⌘,`), open `Maven` > `Archetypes`, click on the `Add Remote Catalog...` button
+1. On the Archetypes Preferences page (Windows: `Window` > `Preferences`; OS X: `Eclipse`> `Preferences` or `⌘,`), open `Maven` > `Archetypes`, click on the `Add Remote Catalog...` button
 
     - Catalog file : http://open-archetypes.github.com/maven-repo/releases/
-    - Description : "Open Archetypes"
+    - Description : `Open Archetypes`
 
 2. Click `OK` to close the dialog
 3. Click `OK` to close the preferences
