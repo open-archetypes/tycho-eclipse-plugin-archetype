@@ -13,7 +13,7 @@ This archetype will create a multi-modules project with a nested structure :
      |
      |---__artifactId__.site : eclipse-repository
 
-The generated plugin is based on the Hello World template from the PDE Wizard :
+The generated plugin is based on the Hello World template from the PDE Wizard, using the Eclipse 3.x architecture :
 
     [...] creates a simple handler set that adds Sample Menu to the menu bar and a button to the tool bar.
     Both the menu item in the new menu and the button invoke the same Sample Handler.
