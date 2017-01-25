@@ -24,7 +24,7 @@
 #if ($java_version == "1.6" || $java_version == "1.7")
     <tycho.test.jvmArgs>-Xmx512m -XX:MaxPermSize=256m ${tycho.test.platformArgs}</tycho.test.jvmArgs>
 #else
-    <tycho.test.jvmArgs>-Xmx512m</tycho.test.jvmArgs>
+    <tycho.test.jvmArgs>-Xmx512m ${tycho.test.platformArgs}</tycho.test.jvmArgs>
 #end
 #if ($signing_support == "true" || $signing_support == "y" || $signing_support == "yes" )
     <jarsigner.version>1.4</jarsigner.version>
