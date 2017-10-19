@@ -48,7 +48,7 @@ Open your terminal or Windows CMD:
 2. Enter the groupId
 3. Enter the artifactId
 4. Enter the name of the package under which your code will be created
-5. Enter the version of your project
+5. Enter the version of your project. Eclipse requires the version to follow a Major.Minor.Micro pattern, so you should use 1.0.0-SNAPSHOT instead of 1.0-SNAPSHOT
 6. Confirm
 
 Creating a new project in Eclipse, using the Maven wizard
