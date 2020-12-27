@@ -16,7 +16,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.openarchetypes</groupId>
   <artifactId>tycho-eclipse-plugin-archetype</artifactId>
-  <version>1.0.2-SNAPSHOT</version>
+  <version>1.0.2</version>
   <packaging>maven-archetype</packaging>
   <name>tycho-eclipse-plugin-archetype</name>
   <description>Creates multiple, Tycho-built, eclipse-plugin projects : Parent project, Core plugin, Test fragment, Feature and Update plugins.  </description>
@@ -35,7 +35,7 @@
     <connection>scm:git:${project.scm.url}</connection>
     <developerConnection>scm:git:${project.scm.url}</developerConnection>
     <url>https://github.com/open-archetypes/tycho-eclipse-plugin-archetype</url>
-    <tag>HEAD</tag>
+    <tag>v1.0.2</tag>
   </scm>
   <developers>
   	<developer>
