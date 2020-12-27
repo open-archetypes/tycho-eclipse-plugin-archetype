@@ -1,0 +1,38 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - release
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+          server-id: bintray
+          server-username: BINTRAY_USERNAME
+          server-password: BINTRAY_TOKEN
+      - name: Cache Maven packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+      - name: Build with Maven
+        run: xvfb-run -a mvn --batch-mode --update-snapshots verify
+      - name: Configure Git user
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+      - name: Publish Archetype
+        run: xvfb-run -a mvn --batch-mode --update-snapshots release:prepare release:perform -DskipTests -Darchetype.test.skip=true
+        env:
+          MAVEN_USERNAME: ${{ secrets.BINTRAY_USERNAME}}
+          MAVEN_CENTRAL_TOKEN: ${{ secrets.BINTRAY_TOKEN}}
