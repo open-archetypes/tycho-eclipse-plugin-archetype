@@ -36,3 +36,4 @@ jobs:
         env:
           MAVEN_USERNAME: ${{ secrets.BINTRAY_USERNAME}}
           MAVEN_CENTRAL_TOKEN: ${{ secrets.BINTRAY_TOKEN}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
