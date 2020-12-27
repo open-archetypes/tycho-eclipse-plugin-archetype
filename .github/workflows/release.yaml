@@ -41,6 +41,6 @@ jobs:
       - name: Publish Archetype
         run: mvn --batch-mode --update-snapshots release:perform
         env:
-          MAVEN_USERNAME: ${{ secrets.BINTRAY_USERNAME}}
-          MAVEN_CENTRAL_TOKEN: ${{ secrets.BINTRAY_TOKEN}}
+          BINTRAY_USERNAME: ${{ secrets.BINTRAY_USERNAME}}
+          BINTRAY_TOKEN: ${{ secrets.BINTRAY_TOKEN}}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
