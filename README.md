@@ -22,9 +22,9 @@ The generated plugin is based on the Hello World template from the PDE Wizard, u
 Pre-Requisites :
 -------------------
 
-* JDK 1.7 or later (Java 1.8 is the default target)
-* maven 3.0 or later
-* Eclipse Juno (3.6) with PDE or later (Neon (4.5) is the default target)
+* JDK 1.8 or later (Java 11 is the default target)
+* maven 3.6.3 or later
+* Eclipse 2020-12 is the default target, but earlier versions *might* work
 * m2e 1.1 or later
 * m2eclipse-tycho 0.6 or later
 
@@ -34,7 +34,7 @@ In Eclipse, first add the Open Archetypes catalog :
 
 1. On the Archetypes Preferences page (Windows: `Window` > `Preferences`; OS X: `Eclipse`> `Preferences` or `⌘,`), open `Maven` > `Archetypes`, click on the `Add Remote Catalog...` button
 
-    - Catalog file : http://open-archetypes.github.com/maven-repo/releases/
+    - Catalog file : https://open-archetypes.github.com/maven-repo/releases/
     - Description : `Open Archetypes`
 
 2. Click `OK` to close the dialog
@@ -60,10 +60,9 @@ Creating a new project in Eclipse, using the Maven wizard
 * Select `tycho-eclipse-plugin-archetype` and click Next
 * Enter the Group Id, Artifact Id and Version informations. Eclipse requires the version to follow a Major.Minor.Micro pattern, so you should use 1.0.0-SNAPSHOT instead of 1.0-SNAPSHOT
 * You can change the required properties if needed :
-    - java_version : The Java version to be used for compiling the plugins. Supported values are `1.7`, `1.8`. Defaults to `1.8`
-    - tycho_version : the tycho version that will be used to build the project in command line. Defaults to `0.26.0`
-    - eclipse_platform : the Eclipse platform, will drive what eclipse update site will be used to resolve the Eclipse dependencies.
-    Supported values are : `helios`, `indigo`, `juno`, `kepler`, `luna`, `mars`, `neon`. Defaults to `neon` .
+    - java_version : The Java version to be used for compiling the plugins. Supported values are `1.8` to `15`. Defaults to `11`
+    - tycho_version : the tycho version that will be used to build the project in command line. Defaults to `2.1.0`
+    - eclipse_platform : the Eclipse platform, will drive what eclipse update site will be used to resolve the Eclipse dependencies. Defaults to `2020-12`. Previous non-date-based platforms like `neon`, `luna` might work too.
 * Hit `Finish`
 * Wait for awesomeness
 
