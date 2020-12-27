@@ -32,8 +32,8 @@
       </license>
   </licenses>
   <scm>
-    <connection>scm:git:https://github.com/open-archetypes/tycho-eclipse-plugin-archetype.git</connection>
-    <developerConnection>scm:git:git@github.com:open-archetypes/tycho-eclipse-plugin-archetype.git</developerConnection>
+    <connection>scm:git:${project.scm.url}</connection>
+    <developerConnection>scm:git:${project.scm.url}</developerConnection>
     <url>https://github.com/open-archetypes/tycho-eclipse-plugin-archetype</url>
     <tag>HEAD</tag>
   </scm>
@@ -69,6 +69,8 @@
         <version>3.0.0-M1</version>
         <configuration>
           <tagNameFormat>v@{project.version}</tagNameFormat>
+          <arguments>-DskipTests -Darchetype.test.skip=true</arguments>
+          <scmCommentPrefix>[ci skip]</scmCommentPrefix>
         </configuration>
       </plugin>
     </plugins>

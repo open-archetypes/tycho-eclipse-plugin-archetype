@@ -16,23 +16,30 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11
-          server-id: bintray
-          server-username: BINTRAY_USERNAME
-          server-password: BINTRAY_TOKEN
+          server-id: github
       - name: Cache Maven packages
         uses: actions/cache@v2
         with:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
-      - name: Build with Maven
-        run: xvfb-run -a mvn --batch-mode --update-snapshots verify
       - name: Configure Git user
         run: |
           git config user.email "actions@github.com"
           git config user.name "GitHub Actions"
+      - name: Prepare release
+        run: mvn --batch-mode release:prepare -Dproject.scm.id=github
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Configure deployment
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+          server-id: bintray
+          server-username: BINTRAY_USERNAME
+          server-password: BINTRAY_TOKEN
       - name: Publish Archetype
-        run: xvfb-run -a mvn --batch-mode --update-snapshots release:prepare release:perform -DskipTests -Darchetype.test.skip=true
+        run: mvn --batch-mode --update-snapshots release:perform
         env:
           MAVEN_USERNAME: ${{ secrets.BINTRAY_USERNAME}}
           MAVEN_CENTRAL_TOKEN: ${{ secrets.BINTRAY_TOKEN}}
