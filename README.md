@@ -1,7 +1,7 @@
 tycho-eclipse-plugin-archetype
 ==============================
 
-This archetype will create a multi-modules project with a nested structure :
+This archetype will create a multi-module project with a nested structure :
 
      __artifactId__    : parent pom project
      |
@@ -23,7 +23,7 @@ Pre-Requisites :
 -------------------
 
 * JDK 1.8 or later (Java 11 is the default target)
-* maven 3.6.3 or later
+* Maven 3.6.3 or later
 * Eclipse 2020-12 is the default target, but earlier versions *might* work
 * m2e 1.1 or later
 * m2eclipse-tycho 0.6 or later
