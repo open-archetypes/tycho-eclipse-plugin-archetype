@@ -21,6 +21,9 @@
   <name>tycho-eclipse-plugin-archetype</name>
   <description>Creates multiple, Tycho-built, eclipse-plugin projects : Parent project, Core plugin, Test fragment, Feature and Update plugins.  </description>
   <inceptionYear>2010</inceptionYear>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
   <licenses>
       <license>
           <name>The Apache Software License, Version 2.0</name>
