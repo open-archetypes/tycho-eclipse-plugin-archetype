@@ -25,7 +25,6 @@
 #if ($signing_support == "true" || $signing_support == "y" || $signing_support == "yes" )
     <jarsigner.version>1.4</jarsigner.version>
 #end
-
   </properties>
 
   <repositories>

@@ -21,6 +21,10 @@
          point="org.eclipse.ui.handlers">
       <handler
             commandId="command.sample.id"
+#if ($kotlin_support == "true" || $kotlin_support == "y" || $kotlin_support == "yes")
+            class="${package}.plugin.SampleHandlerKt">
+#else
+#end
             class="${package}.plugin.SampleHandler">
       </handler>
    </extension>
