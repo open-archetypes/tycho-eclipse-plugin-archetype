@@ -5,7 +5,9 @@ This archetype will create a multi-module project with a nested structure :
 
      __artifactId__    : parent pom project
      |
-     |---__artifactId__.core   : eclipse-plugin
+     |---__artifactId__.plugin   : eclipse-plugin
+     |
+     |---__artifactId__.product: eclipse-repositorye
      |
      |---__artifactId__.feature: eclipse-feature
      |

@@ -13,6 +13,9 @@
     <requiredProperty key="signing_support">
       <defaultValue>false</defaultValue>
     </requiredProperty>
+    <requiredProperty key="kotlin_support">
+      <defaultValue>false</defaultValue>
+    </requiredProperty>
   </requiredProperties>
   <fileSets>
     <fileSet encoding="UTF-8"  filtered="true">
@@ -24,7 +27,7 @@
     </fileSet>
   </fileSets>
   <modules>
-    <module id="${rootArtifactId}.core" dir="__rootArtifactId__.core" name="${rootArtifactId}.core">
+    <module id="${rootArtifactId}.plugin" dir="__rootArtifactId__.plugin" name="${rootArtifactId}.plugin">
       <fileSets>
         <fileSet filtered="true" packaged="true" encoding="UTF-8">
           <directory>src/main/java</directory>
@@ -82,6 +85,17 @@
           <includes>
             <include>build.properties</include>
             <include>feature.xml</include>
+          </includes>
+        </fileSet>
+      </fileSets>
+    </module>
+    <module id="${rootArtifactId}.product" dir="__rootArtifactId__.product" name="${rootArtifactId}.product">
+      <fileSets>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory></directory>
+          <includes>
+            <include>build.properties</include>
+            <include>application.product</include>
           </includes>
         </fileSet>
       </fileSets>

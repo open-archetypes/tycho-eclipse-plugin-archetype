@@ -1,4 +1,4 @@
-package ${package}.core;
+package ${package}.plugin;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -13,7 +13,7 @@ public class ActivatorTest {
 
 	@Test
 	public void veryStupidTest() {
-		assertEquals("${parentArtifactId}.core",Activator.PLUGIN_ID);
+		assertEquals("${parentArtifactId}.plugin",Activator.PLUGIN_ID);
 		assertTrue("Plugin should be started", Activator.getDefault().started);
 	}
 }

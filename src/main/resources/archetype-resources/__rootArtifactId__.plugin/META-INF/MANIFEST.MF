@@ -9,11 +9,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ${rootArtifactId} Core Plugin
-Bundle-SymbolicName: ${rootArtifactId}.core;singleton:=true
+Bundle-SymbolicName: ${rootArtifactId}.plugin;singleton:=true
 Bundle-Version: ${futureVersion}.qualifier
-Bundle-Activator: ${package}.core.Activator
+Bundle-Activator: ${package}.plugin.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-$java_version
-Automatic-Module-Name: ${rootArtifactId}.core
+Automatic-Module-Name: ${rootArtifactId}.plugin
