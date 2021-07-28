@@ -34,7 +34,7 @@ In Eclipse, first add the Open Archetypes catalog :
 
 1. On the Archetypes Preferences page (Windows: `Window` > `Preferences`; OS X: `Eclipse`> `Preferences` or `⌘,`), open `Maven` > `Archetypes`, click on the `Add Remote Catalog...` button
 
-    - Catalog file : https://open-archetypes.github.com/maven-repo/releases/
+    - Catalog file : https://open-archetypes.github.io/maven-repo/releases/
     - Description : `Open Archetypes`
 
 2. Click `OK` to close the dialog
@@ -44,7 +44,7 @@ Accessing the archetype from command line
 -------------------
 Open your terminal or Windows CMD:
 
-1. Execute `mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate -DarchetypeCatalog=http://open-archetypes.github.com/maven-repo/releases/ -DarchetypeGroupId=org.openarchetypes -DarchetypeArtifactId=tycho-eclipse-plugin-archetype`
+1. Execute `mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate -DarchetypeCatalog=http://open-archetypes.github.io/maven-repo/releases/ -DarchetypeGroupId=org.openarchetypes -DarchetypeArtifactId=tycho-eclipse-plugin-archetype`
 2. Enter the groupId
 3. Enter the artifactId
 4. Enter the name of the package under which your code will be created
