@@ -13,6 +13,9 @@
     <requiredProperty key="signing_support">
       <defaultValue>false</defaultValue>
     </requiredProperty>
+    <requiredProperty key="version">
+        <defaultValue>1.0.0-SNAPSHOT</defaultValue>
+    </requiredProperty>
   </requiredProperties>
   <fileSets>
     <fileSet encoding="UTF-8"  filtered="true">
